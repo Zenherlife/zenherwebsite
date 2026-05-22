@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -69,14 +70,14 @@
   --card-foreground: oklch(0.22 0.04 350);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.04 350);
-  --primary: oklch(0.66 0.21 350);
+  --primary: oklch(0.62 0.22 330);
   --primary-foreground: oklch(0.99 0.005 350);
-  --primary-glow: oklch(0.78 0.17 350);
-  --secondary: oklch(0.97 0.02 350);
-  --secondary-foreground: oklch(0.3 0.06 350);
-  --muted: oklch(0.97 0.015 350);
-  --muted-foreground: oklch(0.5 0.04 350);
-  --accent: oklch(0.94 0.05 350);
+  --primary-glow: oklch(0.75 0.18 340);
+  --secondary: oklch(0.97 0.025 320);
+  --secondary-foreground: oklch(0.3 0.08 320);
+  --muted: oklch(0.97 0.015 340);
+  --muted-foreground: oklch(0.5 0.04 330);
+  --accent: oklch(0.94 0.06 320);
   --accent-foreground: oklch(0.3 0.08 350);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
@@ -134,8 +135,8 @@
 }
 
 @theme inline {
-  --font-display: "Fraunces", "Playfair Display", serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Instrument Serif", "Cormorant Garamond", serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 }
 
 @layer base {
@@ -145,8 +146,8 @@
 
   html, body {
     background:
-      radial-gradient(1100px 700px at 85% -10%, oklch(0.95 0.08 350 / 0.7), transparent 60%),
-      radial-gradient(900px 600px at -10% 30%, oklch(0.96 0.06 340 / 0.6), transparent 65%),
+      radial-gradient(1100px 700px at 85% -10%, oklch(0.92 0.1 330 / 0.55), transparent 60%),
+      radial-gradient(900px 600px at -10% 30%, oklch(0.94 0.08 320 / 0.5), transparent 65%),
       var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -161,19 +162,19 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, oklch(0.55 0.24 350), oklch(0.72 0.2 340));
+    background: linear-gradient(135deg, oklch(0.55 0.25 320), oklch(0.7 0.2 340));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .bg-gradient-primary {
-    background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+    background: linear-gradient(135deg, oklch(0.6 0.22 320), oklch(0.72 0.2 345));
   }
   .shadow-glow {
-    box-shadow: 0 20px 60px -20px oklch(0.66 0.21 350 / 0.45);
+    box-shadow: 0 20px 60px -20px oklch(0.6 0.22 330 / 0.45);
   }
   .shadow-soft {
-    box-shadow: 0 10px 40px -15px oklch(0.5 0.1 350 / 0.25);
+    box-shadow: 0 10px 40px -15px oklch(0.5 0.12 330 / 0.22);
   }
   .glass {
     background: color-mix(in oklab, white 70%, transparent);
