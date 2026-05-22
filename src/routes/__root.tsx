@@ -72,15 +72,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
+      { title: "zenher" },
       { name: "description", content: "Zenher Community Hub is a women's healthcare platform for users to connect, share health questions, and engage with verified health experts." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
+      { name: "author", content: "Zenher" },
+      { property: "og:title", content: "zenher" },
+      { property: "og:site_name", content: "zenher" },
+      { property: "og:url", content: "https://zenher.in/" },
       { property: "og:description", content: "Zenher Community Hub is a women's healthcare platform for users to connect, share health questions, and engage with verified health experts." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@zenher" },
+      { name: "twitter:title", content: "zenher" },
       { name: "twitter:description", content: "Zenher Community Hub is a women's healthcare platform for users to connect, share health questions, and engage with verified health experts." },
     ],
     links: [
@@ -88,6 +90,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", href: "/assets/zenher-logo.jpeg" },
+      { rel: "shortcut icon", href: "/assets/zenher-logo.jpeg" },
+      { rel: "apple-touch-icon", href: "/assets/zenher-logo.jpeg" },
     ],
   }),
   shellComponent: RootShell,
@@ -101,6 +106,24 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "zenher",
+              url: "https://zenher.in/",
+              logo: "https://zenher.in/assets/zenher-logo.jpeg",
+              description: "Zenher — a women healthcare community with verified experts, anonymous posting, and thoughtful privacy.",
+              sameAs: [
+                "https://www.linkedin.com/company/zenher",
+                "https://twitter.com/zenher",
+                "https://instagram.com/zenher"
+              ]
+            }),
+          }}
+        />
       </head>
       <body>
         {children}
