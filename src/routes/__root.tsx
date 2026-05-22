@@ -102,6 +102,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  // On the client we must not render a full HTML document inside the existing
+  // `index.html`. Return only children and Scripts to avoid nested <html>/<body>
+  if (typeof window !== 'undefined') {
+    return (
+      <>
+        <HeadContent />
+        {children}
+        <Scripts />
+      </>
+    );
+  }
+
   return (
     <html lang="en">
       <head>
