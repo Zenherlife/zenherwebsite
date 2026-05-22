@@ -13,6 +13,7 @@ import {
   ChevronDown,
   Instagram,
   Twitter,
+  X,
   ArrowRight,
   Lock,
   Stethoscope,
@@ -122,6 +123,8 @@ function Hero() {
             <Stethoscope className="h-4 w-4" /> Join as Expert
           </a>
         </motion.div>
+
+        {/* Social icons removed from hero as requested */}
       </div>
     </section>
   );
@@ -599,50 +602,35 @@ function Footer() {
     <footer className="relative overflow-hidden bg-gradient-purple px-4 pt-16 pb-10 text-primary-foreground sm:px-6 sm:pt-20">
       <div className="absolute -top-24 left-1/2 h-72 w-[80%] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
       <div className="relative mx-auto max-w-6xl">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3">
-              <img src={logo} alt="Zenher" className="h-11 w-11 rounded-full object-cover ring-2 ring-white/40" />
-              <span className="font-display text-2xl sm:text-3xl">Zenher</span>
-            </div>
-            <p className="mt-4 max-w-sm text-sm text-primary-foreground/80">
-              A women healthcare community. Made with care for every her.
-            </p>
-            <div className="mt-6 flex gap-3">
-              {[
-                { Icon: Linkedin, label: "LinkedIn", href: "#" },
-                { Icon: MessageCircle, label: "WhatsApp", href: "#" },
-                { Icon: Twitter, label: "X", href: "#" },
-                { Icon: Instagram, label: "Instagram", href: "#" },
-              ].map(({ Icon, label, href }) => (
+        <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between md:items-center">
+          <div className="flex items-center gap-4">
+            <img src={logo} alt="Zenher" className="h-10 w-10 rounded-full object-cover" />
+            <span className="font-display text-lg sm:text-2xl">Zenher</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            {[
+              { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/zenher/" },
+              { Icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/" },
+              { Icon: X, label: "X", href: "https://x.com/zenherhealth" },
+              { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/zenher.in" },
+            ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-primary-foreground transition hover:-translate-y-0.5 hover:bg-white/20"
+                  title={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-primary-foreground transition hover:-translate-y-0.5 hover:bg-white/20"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className={label === "WhatsApp" ? "h-5 w-5" : "h-4 w-4"} />
                 </a>
-              ))}
-            </div>
+            ))}
           </div>
 
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">Community</p>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              <li><a href="#community" className="text-primary-foreground/85 transition hover:text-white">Features</a></li>
-              <li><a href="#expert" className="text-primary-foreground/85 transition hover:text-white">For Experts</a></li>
-              <li><a href="#download" className="text-primary-foreground/85 transition hover:text-white">Download App</a></li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">Zenher</p>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              <li><a href="#faq" className="text-primary-foreground/85 transition hover:text-white">FAQ</a></li>
-              <li><a href="#" className="text-primary-foreground/85 transition hover:text-white">Privacy</a></li>
-              <li><a href="#" className="text-primary-foreground/85 transition hover:text-white">Guidelines</a></li>
-              <li><a href="#" className="text-primary-foreground/85 transition hover:text-white">Contact</a></li>
-            </ul>
+          <div className="text-sm text-primary-foreground/90">
+            <a href="mailto:info@zenher.in" className="hover:underline">info@zenher.in</a>
           </div>
         </div>
 
